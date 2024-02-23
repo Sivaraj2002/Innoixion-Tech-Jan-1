@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+</head>
+<body bgcolor="#909497">
+    <h1><center>Quiz Questions</center></h1>
+    <h2><center>All The Best </center></h2>
+    <form action="/submit" method="post">
+        {% for question in quiz_data %}
+            <div>
+                <p>{{ question["question"] }}</p>
+                {% for option in question["options"] %}
+                    <input type="radio" name="{{ question["question"] }}" value="{{ option }}">{{ option }}<br>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button style="background-color:green;border-color:green" type="submit">Submit</button>
+    </form>
+</body>
+</html>
